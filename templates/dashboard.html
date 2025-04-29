@@ -1,18 +1,86 @@
-<!DOCTYPE html>
-<html>
-<head><title>Dashboard</title></head>
-<body>
-  <h2>Hoş geldin {{ username }}</h2>
-  <table border="1">
-    <tr><th>Tarih</th><th>Proje</th><th>Mesaj Sayısı</th></tr>
-    {% for mesaj in mesajlar %}
-    <tr>
-      <td>{{ mesaj['tarih'] }}</td>
-      <td>{{ mesaj['project'] }}</td>
-      <td>{{ mesaj['mesaj_sayisi'] }}</td>
-    </tr>
-    {% endfor %}
-  </table>
-  <br><a href="{{ url_for('logout') }}">Çıkış</a>
-</body>
-</html>
+
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block header %}Hoş Geldin, {{ username }}{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Günlük Mesaj Kartı -->
+    <div class="bg-gradient-to-r from-blue-500 to-blue-700 p-6 rounded-lg shadow-md hover:scale-105 transition">
+        <h2 class="text-white text-lg font-semibold">Bugünkü Mesaj Sayısı</h2>
+        <p class="text-3xl font-bold mt-4">{{ gunluk_toplam }}</p>
+    </div>
+
+    <!-- Toplam Mesaj Kartı -->
+    <div class="bg-gradient-to-r from-green-500 to-green-700 p-6 rounded-lg shadow-md hover:scale-105 transition">
+        <h2 class="text-white text-lg font-semibold">Toplam Mesaj Sayısı</h2>
+        <p class="text-3xl font-bold mt-4">{{ tum_toplam }}</p>
+    </div>
+
+    <!-- Günlük Kazanç Kartı -->
+    <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 p-6 rounded-lg shadow-md hover:scale-105 transition">
+        <h2 class="text-white text-lg font-semibold">Günlük Kazanç</h2>
+        <p class="text-3xl font-bold mt-4">€{{ "%.2f"|format(gunluk_kazanc) }}</p>
+    </div>
+</div>
+
+<!-- Grafikler -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-white">
+        <h3 class="text-lg font-bold mb-3 text-pink-300">📈 Momaily Mesaj Grafiği</h3>
+        <canvas id="momailyChart" class="w-full"></canvas>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-white">
+        <h3 class="text-lg font-bold mb-3 text-purple-300">📈 Liebesfun Mesaj Grafiği</h3>
+        <canvas id="liebesChart" class="w-full"></canvas>
+    </div>
+</div>
+
+<!-- Aktif Kullanıcılar Listesi -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    <!-- Momaily Mesajlılar -->
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-3 text-pink-300">💌 Momaily Aktif Kullanıcılar</h3>
+        <ul class="text-white space-y-1">
+            {% for item in momaily_mesaj_olanlar %}
+                <li class="flex justify-between border-b border-gray-600 py-1">
+                    <span>{{ item.nick }}</span>
+                    <span class="font-semibold">{{ item.mesaj }} mesaj</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Liebes Mesajlılar -->
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-3 text-purple-300">💌 Liebesfun Aktif Kullanıcılar</h3>
+        <ul class="text-white space-y-1">
+            {% for item in liebes_mesaj_olanlar %}
+                <li class="flex justify-between border-b border-gray-600 py-1">
+                    <span>{{ item.nick }}</span>
+                    <span class="font-semibold">{{ item.mesaj }} mesaj</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<!-- Projeye Göre Günlük Mesajlar -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-white">
+        <h3 class="text-xl font-bold text-pink-400 mb-4">📋 Momaily Günlük Toplam Mesaj</h3>
+        <p class="text-3xl font-bold">{{ momaily_gunluk_toplam or 0 }} mesaj</p>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-white">
+        <h3 class="text-xl font-bold text-purple-400 mb-4">📋 Liebesfun Günlük Toplam Mesaj</h3>
+        <p class="text-3xl font-bold">{{ liebes_gunluk_toplam or 0 }} mesaj</p>
+    </div>
+</div>
+
+<!-- Uyarı -->
+<div class="mt-8 text-center">
+    <p class="text-red-500 text-lg font-semibold">‼️ Tüm mesajlar 24 saat içinde yazılmalıdır!</p>
+</div>
+
+{% endblock %}

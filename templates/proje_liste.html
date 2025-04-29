@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}{{ proje }} Listesi{% endblock %}
+{% block header %}📊 {{ proje }} Performans Listesi{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+    <!-- Global Liste -->
+    <div class="bg-gray-800 p-6 rounded shadow">
+        <h2 class="text-xl font-bold mb-4">🌍 Global Liste (Son 3 Gün)</h2>
+        <table class="w-full text-sm text-left">
+            <thead class="text-gray-300 bg-gray-700">
+                <tr>
+                    <th class="p-2">#</th>
+                    <th class="p-2">Kullanıcı</th>
+                    <th class="p-2">Mesaj</th>
+                </tr>
+            </thead>
+            <tbody>
+{% for u in global_liste %}
+<tr class="border-b border-gray-700 hover:bg-gray-800">
+    <td class="p-2">{{ loop.index }}</td>
+    <td class="p-2">{{ u['isim'] }}</td>
+    <td class="p-2">{{ u['coins'] }}</td>
+</tr>
+{% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Ajans Listesi -->
+    <div class="bg-gray-800 p-6 rounded shadow">
+        <h2 class="text-xl font-bold mb-4">🏢 Ajans Listesi (Bu Maaş Dönemi)</h2>
+        <table class="w-full text-sm text-left">
+            <thead class="text-gray-300 bg-gray-700">
+                <tr>
+                    <th class="p-2">#</th>
+                    <th class="p-2">Kullanıcı</th>
+                    <th class="p-2">Mesaj</th>
+                </tr>
+            </thead>
+            <tbody>
+{% for u in ajans_liste %}
+<tr class="border-b border-gray-700 hover:bg-gray-800">
+    <td class="p-2">{{ loop.index }}</td>
+    <td class="p-2">{{ u['nick'] }}</td>
+    <td class="p-2">{{ u['coins_ges'] }}</td>
+</tr>
+{% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

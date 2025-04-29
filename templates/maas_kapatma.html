@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Maaş Dönemi Kapat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-10">
+    <div class="max-w-xl mx-auto bg-gray-800 p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-bold mb-6">💰 Maaş Dönemi Kapat</h2>
+
+        <form method="POST" class="space-y-4">
+            <label class="block">Başlangıç Tarihi:
+                <input type="date" name="baslangic" required class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
+            </label>
+
+            <label class="block">Bitiş Tarihi:
+                <input type="date" name="bitis" required class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
+            </label>
+
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded w-full">Kapat ve Hesapla</button>
+        </form>
+
+        {% if result %}
+        <div class="mt-6 bg-green-700 p-4 rounded">
+            <p>Toplam Mesaj: {{ result.mesaj }}</p>
+            <p>Kazanç: €{{ "%.2f"|format(result.kazanc) }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

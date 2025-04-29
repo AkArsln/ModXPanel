@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Admin Paneli{% endblock %}
+{% block header %}👑 Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-gray-800 p-6 rounded shadow">
+        <h3 class="text-gray-400 text-sm">Toplam Kullanıcı</h3>
+        <p class="text-3xl font-bold mt-2">{{ toplam_kullanici }}</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow">
+        <h3 class="text-gray-400 text-sm">Toplam Mesaj</h3>
+        <p class="text-3xl font-bold mt-2">{{ toplam_mesaj }}</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow">
+        <h3 class="text-gray-400 text-sm">Toplam Kazanç</h3>
+        <p class="text-3xl font-bold mt-2">€{{ "%.2f"|format(toplam_kazanc) }}</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded shadow">
+        <h3 class="text-gray-400 text-sm">En Aktif Kullanıcı</h3>
+        {% if top_user %}
+        <p class="mt-2"><strong>{{ top_user['username'] }}</strong> ({{ top_user['toplam'] }} mesaj)</p>
+        {% else %}
+        <p class="mt-2 text-gray-400">Henüz veri yok</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Günlük Mesaj Grafiği -->
+<div class="bg-gray-800 p-6 rounded shadow mt-10">
+    <h3 class="text-xl font-bold mb-4">📈 Günlük Sistem Mesaj Grafiği</h3>
+    <canvas id="gunlukGrafik"></canvas>
+</div>
+
+<!-- Yönetici Kısayollar -->
+<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <a href="/admin/kullanicilar" class="bg-blue-600 hover:bg-blue-700 p-4 rounded shadow text-center font-bold">👥 Kullanıcı Yönetimi</a>
+    <a href="/admin/duyurular" class="bg-green-600 hover:bg-green-700 p-4 rounded shadow text-center font-bold">📢 Duyurular</a>
+    <a href="/maas-gecmisi" class="bg-yellow-600 hover:bg-yellow-700 p-4 rounded shadow text-center font-bold">💰 Maaş Geçmişi</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('gunlukGrafik').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for g in gunluk_veriler %}'{{ g['tarih'] }}',{% endfor %}],
+        datasets: [{
+            label: 'Toplam Mesaj',
+            data: [{% for g in gunluk_veriler %}{{ g['toplam'] }},{% endfor %}],
+            backgroundColor: 'rgba(59, 130, 246, 0.6)'
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true, ticks: { color: 'white' } },
+            x: { ticks: { color: 'white' } }
+        },
+        plugins: {
+            legend: { labels: { color: 'white' } }
+        }
+    }
+});
+</script>
+{% endblock %}

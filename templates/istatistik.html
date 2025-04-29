@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}İstatistik{% endblock %}
+{% block header %}📊 İstatistik{% endblock %}
+
+{% block content %}
+<div class="mb-6">
+    <form method="POST" class="flex flex-col md:flex-row items-center gap-4">
+        <label>Tarih Aralığı:</label>
+        <input type="date" name="baslangic" value="{{ baslangic }}" class="p-2 rounded bg-gray-700 text-white">
+        <input type="date" name="bitis" value="{{ bitis }}" class="p-2 rounded bg-gray-700 text-white">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Filtrele</button>
+    </form>
+</div>
+
+<div class="bg-gray-800 p-4 rounded mb-10">
+    <h2 class="text-xl font-bold mb-3">📈 Günlük Mesaj Grafiği</h2>
+    <canvas id="mesajGrafik"></canvas>
+</div>
+
+<div>
+    <h2 class="text-xl font-bold mb-3">📃 Mesaj Detayları</h2>
+    <table class="w-full text-sm text-left">
+        <thead class="text-gray-300 bg-gray-700">
+            <tr>
+                <th class="p-2">Tarih</th>
+                <th class="p-2">Proje</th>
+                <th class="p-2">Mesaj</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in tablo %}
+            <tr class="border-b border-gray-700 hover:bg-gray-800">
+                <td class="p-2">{{ m['tarih'] }}</td>
+                <td class="p-2">{{ m['project'] }}</td>
+                <td class="p-2">{{ m['mesaj_sayisi'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('mesajGrafik').getContext('2d');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for v in veriler %}'{{ v['tarih'] }}',{% endfor %}],
+        datasets: [{
+            label: 'Günlük Mesaj Sayısı',
+            data: [{% for v in veriler %}{{ v['toplam'] }},{% endfor %}],
+            borderColor: 'rgb(59, 130, 246)',
+            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+            tension: 0.3,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true, ticks: { color: 'white' } },
+            x: { ticks: { color: 'white' } }
+        },
+        plugins: {
+            legend: { labels: { color: 'white' } }
+        }
+    }
+});
+</script>
+{% endblock %}

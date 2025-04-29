@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Maaş Dönemleri{% endblock %}
+{% block header %}💰 Tüm Maaş Kayıtları{% endblock %}
+
+{% block content %}
+<div class="bg-gray-800 p-6 rounded shadow overflow-auto">
+    <h2 class="text-xl font-bold mb-4">📋 Tüm Kapanan Maaş Dönemleri</h2>
+
+    <table class="w-full text-sm text-left border-collapse">
+        <thead class="bg-gray-700 text-white">
+            <tr>
+                <th class="p-3">👤 Kullanıcı</th>
+                <th class="p-3">📅 Başlangıç</th>
+                <th class="p-3">📅 Bitiş</th>
+                <th class="p-3">💬 Mesaj</th>
+                <th class="p-3">💶 Kazanç (€)</th>
+                <th class="p-3">🕒 Kapatma Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in maaslar %}
+            <tr class="border-b border-gray-600 hover:bg-gray-800">
+                <td class="p-3">{{ m['username'] }}</td>
+                <td class="p-3">{{ m['baslangic'] }}</td>
+                <td class="p-3">{{ m['bitis'] }}</td>
+                <td class="p-3">{{ m['toplam_mesaj'] }}</td>
+                <td class="p-3">€{{ "%.2f"|format(m['kazanc']) }}</td>
+                <td class="p-3">{{ m['kapatma_tarihi'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

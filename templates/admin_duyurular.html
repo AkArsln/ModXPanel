@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Duyuru Yönetimi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-10">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6">Duyuru Yönetimi (Admin)</h1>
+
+        <!-- Duyuru Ekleme Formu -->
+        <form method="POST" class="bg-gray-800 p-6 rounded-lg mb-8">
+            <h2 class="text-xl font-bold mb-4">Yeni Duyuru Ekle</h2>
+            <input name="title" placeholder="Başlık" required class="w-full p-2 rounded bg-gray-700 text-white mb-4">
+            <textarea name="content" placeholder="İçerik" required class="w-full p-2 rounded bg-gray-700 text-white mb-4"></textarea>
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Duyuru Ekle</button>
+        </form>
+
+        <!-- Var Olan Duyurular -->
+        <div class="space-y-4">
+            {% for duyuru in duyurular %}
+            <div class="bg-gray-800 p-4 rounded shadow">
+                <h3 class="text-lg font-bold">{{ duyuru['title'] }}</h3>
+                <p class="text-sm text-gray-400">{{ duyuru['created_at'] }}</p>
+                <p class="mt-2">{{ duyuru['content'] }}</p>
+                <a href="?sil={{ duyuru['id'] }}" class="text-red-400 text-sm mt-2 inline-block hover:underline">Sil</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

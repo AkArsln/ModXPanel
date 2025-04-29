@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Duyurular</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+    <div class="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
+        {% if announcement %}
+            <h2 class="text-2xl font-bold mb-4">{{ announcement['title'] }}</h2>
+            <p class="mb-6">{{ announcement['content'] }}</p>
+
+            {% if not already_read %}
+            <form method="POST">
+                <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Okudum</button>
+            </form>
+            {% else %}
+            <div class="text-green-400">Bu duyuruyu daha önce okudunuz.</div>
+            {% endif %}
+        {% else %}
+            <p>Şu anda duyuru yok.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

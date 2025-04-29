@@ -1,0 +1,203 @@
+{
+  "top10": {
+    "evvelsi_gun": [
+      {
+        "isim": "AkA-ElonMusk",
+        "coins": "3340 Coins"
+      },
+      {
+        "isim": "AkA-Hashuss",
+        "coins": "1865 Coins"
+      },
+      {
+        "isim": "AnjaM",
+        "coins": "1720 Coins"
+      },
+      {
+        "isim": "NadineL.",
+        "coins": "1405 Coins"
+      },
+      {
+        "isim": "AkA-Kursat",
+        "coins": "1380 Coins"
+      },
+      {
+        "isim": "TMS-Miwi",
+        "coins": "1180 Coins"
+      },
+      {
+        "isim": "TP-005",
+        "coins": "1100 Coins"
+      },
+      {
+        "isim": "AndreaK.",
+        "coins": "985 Coins"
+      },
+      {
+        "isim": "Mo130",
+        "coins": "930 Coins"
+      },
+      {
+        "isim": "RicardaS",
+        "coins": "900 Coins"
+      }
+    ],
+    "dun": [
+      {
+        "isim": "AkA-Hashuss",
+        "coins": "3065 Coins"
+      },
+      {
+        "isim": "AndreaK.",
+        "coins": "2638 Coins"
+      },
+      {
+        "isim": "AkA-ElonMusk",
+        "coins": "2578 Coins"
+      },
+      {
+        "isim": "NadineL.",
+        "coins": "2205 Coins"
+      },
+      {
+        "isim": "TMS-Miwi",
+        "coins": "1718 Coins"
+      },
+      {
+        "isim": "AnjaM",
+        "coins": "1625 Coins"
+      },
+      {
+        "isim": "AkA-Kursat",
+        "coins": "1395 Coins"
+      },
+      {
+        "isim": "TP-005",
+        "coins": "1155 Coins"
+      },
+      {
+        "isim": "Mo85",
+        "coins": "935 Coins"
+      },
+      {
+        "isim": "Stefanie",
+        "coins": "840 Coins"
+      }
+    ],
+    "bugun": [
+      {
+        "isim": "TP-005",
+        "coins": "160 Coins"
+      },
+      {
+        "isim": "AkA-ElonMusk",
+        "coins": "145 Coins"
+      },
+      {
+        "isim": "AkA-Kursat",
+        "coins": "105 Coins"
+      },
+      {
+        "isim": "Mo200",
+        "coins": "95 Coins"
+      },
+      {
+        "isim": "RicardaS",
+        "coins": "70 Coins"
+      },
+      {
+        "isim": "AkA-Notarzt",
+        "coins": "65 Coins"
+      },
+      {
+        "isim": "NadineL.",
+        "coins": "40 Coins"
+      },
+      {
+        "isim": "AkA-ForFay",
+        "coins": "30 Coins"
+      },
+      {
+        "isim": "AkA-Hashuss",
+        "coins": "25 Coins"
+      },
+      {
+        "isim": "AkA-Kaan",
+        "coins": "20 Coins"
+      }
+    ]
+  },
+  "ajanslar": [
+    {
+      "nick": "gesamt",
+      "coins_ges": 410
+    },
+    {
+      "nick": "AkA-ElonMusk (NEW-T)",
+      "coins_ges": 145
+    },
+    {
+      "nick": "AkA-Kursat (NEW-T)",
+      "coins_ges": 105
+    },
+    {
+      "nick": "AkA-Notarzt (NEW-T)",
+      "coins_ges": 65
+    },
+    {
+      "nick": "AkA-ForFay (NEW-T)",
+      "coins_ges": 30
+    },
+    {
+      "nick": "AkA-Hashuss (NEW-T)",
+      "coins_ges": 25
+    },
+    {
+      "nick": "AkA-Kaan (NEW-T)",
+      "coins_ges": 20
+    },
+    {
+      "nick": "AkA-Poso (NEW-T)",
+      "coins_ges": 10
+    },
+    {
+      "nick": "AkA-Pasa (NEW-T)",
+      "coins_ges": 10
+    }
+  ],
+  "mesaj_olanlar": [
+    {
+      "nick": "AkA-ElonMusk",
+      "mesaj": 6
+    },
+    {
+      "nick": "AkA-Faik",
+      "mesaj": 3
+    },
+    {
+      "nick": "AkA-ForFay",
+      "mesaj": 6
+    },
+    {
+      "nick": "AkA-Hashuss",
+      "mesaj": 5
+    },
+    {
+      "nick": "AkA-Kursat",
+      "mesaj": 5
+    },
+    {
+      "nick": "AkA-Notarzt",
+      "mesaj": 1
+    },
+    {
+      "nick": "AkA-Pasa",
+      "mesaj": 1
+    },
+    {
+      "nick": "AkA-Poso",
+      "mesaj": 1
+    }
+  ],
+  "tarih": "2025-04-30 02:31:43"
+}

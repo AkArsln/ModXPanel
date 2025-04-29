@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Chat Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-10">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6">📬 Tüm Kullanıcı Mesajları</h2>
+
+        <div class="space-y-4">
+            {% for m in sohbetler %}
+            <div class="bg-gray-800 p-4 rounded">
+                <div class="flex justify-between text-sm text-gray-400">
+                    <span><strong>{{ m['gonderen'] }}</strong> → <strong>{{ m['alici'] }}</strong></span>
+                    <span>{{ m['zaman'] }}</span>
+                </div>
+                <p class="mt-2">{{ m['mesaj'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

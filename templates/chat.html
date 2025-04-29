@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin ile Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-10">
+    <div class="max-w-2xl mx-auto bg-gray-800 p-6 rounded">
+        <h2 class="text-xl font-bold mb-4">💬 Admin ile Chat</h2>
+
+        <div class="space-y-3 max-h-96 overflow-y-auto mb-6">
+            {% for m in sohbet %}
+            <div class="{% if m['gonderen'] == 'admin' %}text-right{% endif %}">
+                <div class="inline-block bg-gray-700 rounded p-2 text-sm">
+                    <strong>{{ m['gonderen'] }}</strong>: {{ m['mesaj'] }}
+                </div>
+                <div class="text-xs text-gray-400 mt-1 {% if m['gonderen'] == 'admin' %}text-right{% endif %}">{{ m['zaman'] }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <form method="POST" class="flex gap-2">
+            <input type="text" name="mesaj" placeholder="Mesaj yaz..." required class="flex-1 p-2 rounded bg-gray-700 text-white">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Gönder</button>
+        </form>
+    </div>
+</body>
+</html>
