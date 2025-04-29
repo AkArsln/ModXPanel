@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h2>Hoş geldin {{ username }}</h2>
+  <table border="1">
+    <tr><th>Tarih</th><th>Proje</th><th>Mesaj Sayısı</th></tr>
+    {% for mesaj in mesajlar %}
+    <tr>
+      <td>{{ mesaj['tarih'] }}</td>
+      <td>{{ mesaj['project'] }}</td>
+      <td>{{ mesaj['mesaj_sayisi'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br><a href="{{ url_for('logout') }}">Çıkış</a>
+</body>
+</html>
