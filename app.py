@@ -3,6 +3,10 @@ import sqlite3
 from datetime import datetime
 from datetime import date
 import json
+from veritabani import tablo_olustur
+
+# En üstte bu fonksiyonu çağır:
+tablo_olustur()
 
 app = Flask(__name__)
 app.secret_key = 'gizli_anahtar'
@@ -432,4 +436,4 @@ if __name__ == '__main__':
 # Render'da data.db yoksa otomatik veritabanını kur
 import os
 if not os.path.exists("data.db"):
-    import veritabani_kurulum
+    import veritabani
