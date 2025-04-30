@@ -423,12 +423,13 @@ def admin_chat():
 def logout():
     session.clear()
     return redirect(url_for('login'))
-import os
-if not os.path.exists("data.db"):
-    from veritabani import *  # Veritabanını baştan kur
 
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))  # Render PORT verir, yoksa 5000 kullan
     app.run(host='0.0.0.0', port=port, debug=True)
 
+# Render'da data.db yoksa otomatik veritabanını kur
+import os
+if not os.path.exists("data.db"):
+    import veritabani_kurulum
