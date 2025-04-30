@@ -423,6 +423,9 @@ def admin_chat():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+import os
+if not os.path.exists("data.db"):
+    from veritabani import *  # Veritabanını baştan kur
 
 if __name__ == '__main__':
     import os
