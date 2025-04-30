@@ -73,5 +73,11 @@ def tablo_olustur():
     )
     ''')
 
+    # Test admin eklemesi (sadece bir kere çalışır çünkü UNIQUE username)
+    cursor.execute('''
+    INSERT OR IGNORE INTO users (username, password, is_admin)
+    VALUES (?, ?, ?)
+    ''', ("admin", "admin123", 1))
+
     conn.commit()
     conn.close()

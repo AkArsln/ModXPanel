@@ -87,84 +87,88 @@
     "bugun": [
       {
         "isim": "1zu1-Sun-Cengizzz",
-        "coins": "1573 Coins"
+        "coins": "2276 Coins"
       },
       {
         "isim": "AkA-ElonMusk",
-        "coins": "1313 Coins"
-      },
-      {
-        "isim": "AkA-Kursat",
-        "coins": "953 Coins"
-      },
-      {
-        "isim": "1zu1-Sun-Freezyyy",
-        "coins": "670 Coins"
-      },
-      {
-        "isim": "Novi-Pedro",
-        "coins": "660 Coins"
-      },
-      {
-        "isim": "1zu1-Sun-VGT",
-        "coins": "585 Coins"
-      },
-      {
-        "isim": "EMS-Andreas",
-        "coins": "490 Coins"
+        "coins": "2041 Coins"
       },
       {
         "isim": "AkA-Hashus",
-        "coins": "420 Coins"
+        "coins": "1660 Coins"
       },
       {
-        "isim": "EMS-Mirine",
-        "coins": "210 Coins"
+        "isim": "AkA-Kursat",
+        "coins": "1213 Coins"
       },
       {
-        "isim": "EMS-Joel",
-        "coins": "205 Coins"
+        "isim": "1zu1-Sun-Freezyyy",
+        "coins": "1083 Coins"
+      },
+      {
+        "isim": "1zu1-Sun-VGT",
+        "coins": "1080 Coins"
+      },
+      {
+        "isim": "1zu1-Sun-Markusss",
+        "coins": "920 Coins"
+      },
+      {
+        "isim": "Novi-Pedro",
+        "coins": "700 Coins"
+      },
+      {
+        "isim": "EMS-Andreas",
+        "coins": "530 Coins"
+      },
+      {
+        "isim": "Novi-Barbara",
+        "coins": "340 Coins"
       }
     ]
   },
   "ajanslar": [
     {
       "nick": "gesamt",
-      "coins_ges": 2829
+      "coins_ges": 5293
     },
     {
       "nick": "AkA-ElonMusk (NEW-T)",
-      "coins_ges": 1313
-    },
-    {
-      "nick": "AkA-Kursat (NEW)",
-      "coins_ges": 953
+      "coins_ges": 2041
     },
     {
       "nick": "AkA-Hashus (NEW-T)",
-      "coins_ges": 420
+      "coins_ges": 1660
+    },
+    {
+      "nick": "AkA-Kursat (NEW)",
+      "coins_ges": 1213
     },
     {
       "nick": "AkA-Kaan (NEW-T)",
-      "coins_ges": 90
+      "coins_ges": 256
+    },
+    {
+      "nick": "AkA-Pasa (NEW-T)",
+      "coins_ges": 50
     },
     {
       "nick": "AkA-Notarzt (NEW-T)",
-      "coins_ges": 23
+      "coins_ges": 43
     },
     {
       "nick": "AkA-ForFay (NEW-T)",
       "coins_ges": 20
     },
     {
-      "nick": "AkA-Pasa (NEW-T)",
+      "nick": "AkA-Faik (NEW-T)",
       "coins_ges": 10
     }
   ],
   "mesaj_olanlar": [
     {
       "nick": "AkA-ElonMusk",
-      "mesaj": 2
+      "mesaj": 17
     },
     {
       "nick": "AkA-Faik",
@@ -176,11 +180,11 @@
     },
     {
       "nick": "AkA-Hashus",
-      "mesaj": 3
+      "mesaj": 18
     },
     {
       "nick": "AkA-Kaan",
-      "mesaj": 5
+      "mesaj": 11
     },
     {
       "nick": "AkA-Notarzt",
@@ -191,5 +195,5 @@
       "mesaj": 1
     }
   ],
-  "tarih": "2025-04-30 11:56:27"
+  "tarih": "2025-04-30 15:33:37"
 }
